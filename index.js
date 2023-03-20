@@ -7,7 +7,6 @@ const _ = require('lodash');
 const getZoneController = require('./controllers/getZoneController');
 const { cekIdGameController } = require('./controllers/cekIdGameController');
 const configIdGame = require('./idgame.config');
-const { default: puppeteer } = require('puppeteer');
 
 const app = express();
 
@@ -63,3 +62,5 @@ if (configIdGame.midasbuy) {
 app.listen(3001, async () => {
    console.log('Server is running on port 3000');
 });
+
+module.exports = app;
