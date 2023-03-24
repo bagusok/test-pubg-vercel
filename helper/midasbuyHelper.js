@@ -3,7 +3,11 @@ const configIdGame = require('../idgame.config');
 const midasbuyHelper = async (browser, redis, slug, id, zone = '') => {
    switch (slug) {
       case 'pubg-mobile':
-         if (configIdGame.midasbuyPubg == false) return { code: 404, message: 'Fitur Cek Pubg Mobile Tidak Aktif' };
+         if (configIdGame.midasbuyPubg == false)
+            return {
+               code: 404,
+               message: 'Fitur Cek Pubg Mobile Tidak Aktif, Jika kalian mau cek id pubg silahkan beli scriptnya.',
+            };
          const cekPubgRedis = await redis.get(`pubg:${id}`);
          if (cekPubgRedis) {
             return JSON.parse(cekPubgRedis);
@@ -20,7 +24,10 @@ const midasbuyHelper = async (browser, redis, slug, id, zone = '') => {
          break;
       case 'pubg-mobile-lite':
          if (configIdGame.midasbuyPubgLite == false)
-            return { code: 404, message: 'Fitur Cek Pubg Mobile Lite Tidak Aktif' };
+            return {
+               code: 404,
+               message: 'Fitur Cek Pubg Mobile Lite Tidak Aktif, kalau kalian mau cek PUBG LITE harus beli scriptnya.',
+            };
          const cekPubgLiteRedis = await redis.get(`pubgLite:${id}`);
          if (cekPubgLiteRedis) {
             return JSON.parse(cekPubgLiteRedis);
@@ -34,7 +41,11 @@ const midasbuyHelper = async (browser, redis, slug, id, zone = '') => {
 
          break;
       case 'tower-of-fantasy':
-         if (configIdGame.midasbuyTOF == false) return { code: 404, message: 'Fitur Cek Tower Of Fantasy Tidak Aktif' };
+         if (configIdGame.midasbuyTOF == false)
+            return {
+               code: 404,
+               message: 'Fitur Cek Tower Of Fantasy Tidak Aktif, Kalau mau cek bisa beli scriptnya dulu.',
+            };
          const cekTofRedis = await redis.get(`tof:${id}:${zone}`);
          if (cekTofRedis) {
             return JSON.parse(cekTofRedis);
@@ -48,7 +59,8 @@ const midasbuyHelper = async (browser, redis, slug, id, zone = '') => {
 
          break;
       case 'nikke':
-         if (configIdGame.midasbuyNikkeGL == false) return { code: 404, message: 'Fitur Cek Nikke Tidak Aktif' };
+         if (configIdGame.midasbuyNikkeGL == false)
+            return { code: 404, message: 'Fitur Cek Nikke Tidak Aktif, kalau mau cek bisa beli scriptnya dulu.' };
          const cekNikkeRedis = await redis.get(`nikke:${id}_${zone}`);
          if (cekNikkeRedis) {
             return JSON.parse(cekNikkeRedis);
@@ -62,7 +74,8 @@ const midasbuyHelper = async (browser, redis, slug, id, zone = '') => {
 
          break;
       case 'chimera':
-         if (configIdGame.midasbuyChimera == false) return { code: 404, message: 'Fitur Cek Chimera Tidak Aktif' };
+         if (configIdGame.midasbuyChimera == false)
+            return { code: 404, message: 'Fitur Cek Chimera Tidak Aktif, Kalau mau cek bisa beli scriptnya dulu' };
          const cekChimeraRedis = await redis.get(`chimera:${id}_${zone}`);
          if (cekChimeraRedis) {
             return JSON.parse(cekChimeraRedis);
@@ -75,7 +88,8 @@ const midasbuyHelper = async (browser, redis, slug, id, zone = '') => {
          }
          break;
       case 'alchemy':
-         if (configIdGame.midasbuyAlchemy == false) return { code: 404, message: 'Fitur Cek Alchemy Tidak Aktif' };
+         if (configIdGame.midasbuyAlchemy == false)
+            return { code: 404, message: 'Fitur Cek Alchemy Tidak Aktif, kalau mau cek bisa belii scriptnyta dulu.' };
          const cekAlchemyRedis = await redis.get(`alchemy:${id}_${zone}`);
          if (cekAlchemyRedis) {
             return JSON.parse(cekAlchemyRedis);
